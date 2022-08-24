@@ -36,6 +36,10 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
+    public int getId() {
+        return id;
+    }
+
     public CoreCompetency getCoreCompetency() {
         return coreCompetency;
     }
@@ -88,6 +92,49 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
+
+
+    public int compareGetter(int getter){
+        int temp=0;
+
+        if(getter != getId()){
+            temp=1;
+        }
+        return temp;
+    }
+
+    public boolean testEquals( Job object){
+        boolean temp= false;
+
+        if( this.name.equals(object.getName()) &&
+                this.employer.equals(object.getEmployer())&&
+                this.positionType.equals(object.getPositionType())&&
+                this.coreCompetency.equals(object.getCoreCompetency())&&
+                this.location.equals(object.getLocation())
+        ){
+            temp= true;
+
+        } else if (this.id == object.id) {
+
+            temp= true;
+        }
+
+        return temp;
+    }
+
+
+
+
+
+
+    public int testInstance(Object object1){
+
+        int temp= 0;
+        if( object1 instanceof Job){
+            temp= 1;
+        }
+        return  temp;
     }
 
 
