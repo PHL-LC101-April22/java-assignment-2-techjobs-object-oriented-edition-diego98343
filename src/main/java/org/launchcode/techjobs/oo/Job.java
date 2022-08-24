@@ -124,10 +124,6 @@ public class Job {
     }
 
 
-
-
-
-
     public int testInstance(Object object1){
 
         int temp= 0;
@@ -136,6 +132,43 @@ public class Job {
         }
         return  temp;
     }
+
+
+    public String toString(){
+
+        String temp="";
+
+
+        temp+="ID: "+this.id+ "\n"+
+                "Name: "+ this.name +"\n"+
+                "Employer: "+ this.employer+ "\n"+
+                "Location: "+ this.location+ "\n"+
+                "Position Type: "+ this.positionType+ "\n"+
+                "Core Competency:"+ this.coreCompetency;
+
+        return  temp;
+
+
+    }
+
+
+    public String toStringFistTest(){
+
+        String temp="";
+
+
+        temp+="ID:  _______\n" +
+                "Name: _______\n" +
+                "Employer: _______\n" +
+                "Location: _______\n" +
+                "Position Type: _______\n" +
+                "Core Competency: _______";
+
+        return  temp;
+
+
+    }
+
 
 
 }
