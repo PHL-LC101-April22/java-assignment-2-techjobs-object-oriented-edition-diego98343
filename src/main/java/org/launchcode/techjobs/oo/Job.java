@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.lang.instrument.ClassDefinition;
 import java.util.Objects;
 
 public class Job {
@@ -134,21 +135,49 @@ public class Job {
         return  temp;
     }
 
+    public boolean compare(Employer input){
+        boolean temp= false;
+        if (input.getValue().equalsIgnoreCase("")){
+            temp= true;
+        }else{
+
+        }
+        return  temp;
+    }
+
 
 
 @Override
     public String toString(){
 
         String temp="";
+        String temp2="No data";
 
 
-    temp+=
-                "ID: "+this.id+ "\n"+
-                "Name: "+ this.name +"\n"+
-                "Employer: "+ this.employer+ "\n"+
-                "Location: "+ this.location+ "\n"+
-                "Position Type: "+ this.positionType+ "\n"+
-                "Core Competency: "+ this.coreCompetency;
+
+//        if(new Employer("").toString().equals()){
+//
+//            temp+= "ID: "+this.id+ "\n"+
+//                    "Name: "+ this.name +"\n"+
+//                    "Employer: "+  temp2+ "\n"+
+//                    "Location: "+ this.location+ "\n"+
+//                    "Position Type: "+ this.positionType+ "\n"+
+//                    "Core Competency: "+ this.coreCompetency;
+//
+//        } else {
+
+            temp+=          "\n"+
+                            "ID: "+this.id+ "\n"+
+                            "Name: "+ this.name +"\n"+
+                            "Employer: "+ getEmployer()+ "\n"+
+                            "Location: "+ this.location+ "\n"+
+                            "Position Type: "+ this.positionType+ "\n"+
+                            "Core Competency: "+ this.coreCompetency+
+                            "\n";
+
+
+
+
 
         return  temp;
 

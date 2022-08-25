@@ -85,19 +85,19 @@ public class JobTest {
   @Test
   public void testToStringContainsCorrectLabelsAndData(){
     Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
-    Job testingJob2= new Job();
-    assertEquals(
 
-            "ID: "+testingJob.getId()+ "\n"+
-            "Name: "+ testingJob.getName() +"\n"+
-            "Employer: "+ testingJob.getEmployer()+ "\n"+
-            "Location: "+ testingJob.getLocation()+ "\n"+
-            "Position Type: "+ testingJob.getPositionType()+ "\n"+
-            "Core Competency: "+ testingJob.getCoreCompetency(),
+    assertEquals(
+            "\n"+
+                     "ID: "+testingJob.getId()+ "\n"+
+                     "Name: "+ testingJob.getName() +"\n"+
+                     "Employer: "+ testingJob.getEmployer()+ "\n"+
+                     "Location: "+ testingJob.getLocation()+ "\n"+
+                     "Position Type: "+ testingJob.getPositionType()+ "\n"+
+                     "Core Competency: "+ testingJob.getCoreCompetency()+
+                     "\n",
 
 
             testingJob.toString() );
-
 
 
 
