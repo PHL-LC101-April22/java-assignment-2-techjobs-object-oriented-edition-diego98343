@@ -36,8 +36,6 @@ public class JobTest {
       assertTrue( testingJob.getPositionType() instanceof PositionType);
       assertTrue( testingJob.getCoreCompetency() instanceof CoreCompetency);
 
-
-
   }
 
   @Test
@@ -45,7 +43,25 @@ public class JobTest {
       Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
       Job testingJob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Peristance"));
 
+
+
       assertFalse(testingJob.testEquals(testingJob2));
+      assertEquals(false,testingJob.equals(testingJob2));
+      assertEquals(false,testingJob.hashCode()==testingJob2.hashCode());
+
+
+
+  }
+
+
+  @Test
+  public void testHashCodeMethod(){
+
+    Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
+    Job testingJob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Peristance"));
+
+    assertEquals(false,testingJob.hashCode()==testingJob2.hashCode());
+
   }
 
 
@@ -69,7 +85,7 @@ public class JobTest {
   @Test
   public void testToStringContainsCorrectLabelsAndData(){
     Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
-
+    Job testingJob2= new Job();
     assertEquals(
 
             "ID: "+testingJob.getId()+ "\n"+
@@ -77,11 +93,19 @@ public class JobTest {
             "Employer: "+ testingJob.getEmployer()+ "\n"+
             "Location: "+ testingJob.getLocation()+ "\n"+
             "Position Type: "+ testingJob.getPositionType()+ "\n"+
-            "Core Competency:"+ testingJob.getCoreCompetency(),
+            "Core Competency: "+ testingJob.getCoreCompetency(),
 
 
             testingJob.toString() );
 
+
+
+
+
+  }
+
+  @Test
+  public void  testToStringHandlesEmptyField(){
 
   }
 

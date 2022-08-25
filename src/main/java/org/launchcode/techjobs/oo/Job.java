@@ -89,6 +89,7 @@ public class Job {
         return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
@@ -134,17 +135,20 @@ public class Job {
     }
 
 
+
+@Override
     public String toString(){
 
         String temp="";
 
 
-        temp+="ID: "+this.id+ "\n"+
+    temp+=
+                "ID: "+this.id+ "\n"+
                 "Name: "+ this.name +"\n"+
                 "Employer: "+ this.employer+ "\n"+
                 "Location: "+ this.location+ "\n"+
                 "Position Type: "+ this.positionType+ "\n"+
-                "Core Competency:"+ this.coreCompetency;
+                "Core Competency: "+ this.coreCompetency;
 
         return  temp;
 
