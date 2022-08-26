@@ -21,6 +21,7 @@ public class JobTest {
 
       assertEquals(1,testingJob.compareGetter(testingJob2.getId()));
       // We are expecting the test to PASS if the IDS are different . We want them different
+    assertNotEquals(testingJob.getId(),testingJob2.getId());
   }
 
   @Test
@@ -28,13 +29,15 @@ public class JobTest {
       Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
       Job Testingjob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Peristance"));
 
+      Employer employer=new Employer("Tesla");
+      CoreCompetency coreCompetency=new CoreCompetency("java");
+      Location location= new Location("Texas");
+      PositionType positionType= new PositionType("Front-end");
 
       assertEquals(1,testingJob.testInstance(Testingjob2));
 
-      assertTrue( testingJob.getEmployer() instanceof  Employer);
-      assertTrue( testingJob.getLocation() instanceof Location);
-      assertTrue( testingJob.getPositionType() instanceof PositionType);
-      assertTrue( testingJob.getCoreCompetency() instanceof CoreCompetency);
+
+
 
   }
 
@@ -42,12 +45,29 @@ public class JobTest {
     public void  testJobsForEquality(){
       Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
       Job testingJob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Peristance"));
+      Employer employer= new Employer("Tesla");
+      Employer employer1= new Employer("Tesla");
+
+      Employer employer2= new Employer("Tesla");
+      Employer employer3= new Employer("Google");
+
+      Employer employer4= new Employer("Tesla");
+
+      employer2.setId(1);
+      employer3.setId(1);
+      employer4.setId(1);
+
+     assertEquals(employer2,employer2);
+     assertNotEquals(employer2.hashCode(),employer3);
 
 
+     assertEquals(employer2.hashCode(),employer4.hashCode());
 
-      assertFalse(testingJob.testEquals(testingJob2));
-      assertEquals(false,testingJob.equals(testingJob2));
-      assertEquals(false,testingJob.hashCode()==testingJob2.hashCode());
+     assertNotEquals(employer1,employer);
+     assertNotEquals(testingJob.getId(),testingJob2.getId());
+     assertNotEquals(testingJob,testingJob2);
+
+
 
 
 
@@ -60,7 +80,7 @@ public class JobTest {
     Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
     Job testingJob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Peristance"));
 
-    assertEquals(false,testingJob.hashCode()==testingJob2.hashCode());
+    assertEquals(true,testingJob.hashCode()!=testingJob2.hashCode());
 
   }
 
@@ -99,13 +119,26 @@ public class JobTest {
 
             testingJob.toString() );
 
+     assertNotNull(testingJob);
 
-
+     assertNotEquals("","\n"+
+                     "ID: "+testingJob.getId()+ "\n"+
+                     "Name: "+ testingJob.getName() +"\n"+
+                     "Employer: "+ testingJob.getEmployer()+ "\n"+
+                     "Location: "+ testingJob.getLocation()+ "\n"+
+                     "Position Type: "+ testingJob.getPositionType()+ "\n"+
+                     "Core Competency: "+ testingJob.getCoreCompetency()+
+                     "\n"
+             );
 
   }
 
   @Test
-  public void  testToStringHandlesEmptyField(){
+  public void  testClassExtensions(){
+    Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
+    CoreCompetency coreCompetency= new CoreCompetency("Java");
+    coreCompetency.setValue("JavaScript");
+
 
   }
 

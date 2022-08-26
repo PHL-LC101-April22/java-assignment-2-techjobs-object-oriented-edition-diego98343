@@ -86,10 +86,19 @@ public class Job {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if(((Job) o).getId()==this.id) return true;
         Job job = (Job) o;
         return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
     }
 
+
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if(((Job) o).getId()==this.id) return true;
+        Job job = (Job) o;
+        return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+    }
 
     @Override
     public int hashCode() {
@@ -106,24 +115,24 @@ public class Job {
         return temp;
     }
 
-    public boolean testEquals( Job object){
-        boolean temp= false;
-
-        if( this.name.equals(object.getName()) &&
-                this.employer.equals(object.getEmployer())&&
-                this.positionType.equals(object.getPositionType())&&
-                this.coreCompetency.equals(object.getCoreCompetency())&&
-                this.location.equals(object.getLocation())
-        ){
-            temp= true;
-
-        } else if (this.id == object.id) {
-
-            temp= true;
-        }
-
-        return temp;
-    }
+//    public boolean testEquals( Job object){
+//        boolean temp= false;
+//
+//        if( this.name.equals(object.getName()) &&
+//                this.employer.equals(object.getEmployer())&&
+//                this.positionType.equals(object.getPositionType())&&
+//                this.coreCompetency.equals(object.getCoreCompetency())&&
+//                this.location.equals(object.getLocation())
+//        ){
+//            temp= true;
+//
+//        } else if (this.id == object.id) {
+//
+//            temp= true;
+//        }
+//
+//        return temp;
+//    }
 
 
     public int testInstance(Object object1){
@@ -131,16 +140,6 @@ public class Job {
         int temp= 0;
         if( object1 instanceof Job){
             temp= 1;
-        }
-        return  temp;
-    }
-
-    public boolean compare(Employer input){
-        boolean temp= false;
-        if (input.getValue().equalsIgnoreCase("")){
-            temp= true;
-        }else{
-
         }
         return  temp;
     }
