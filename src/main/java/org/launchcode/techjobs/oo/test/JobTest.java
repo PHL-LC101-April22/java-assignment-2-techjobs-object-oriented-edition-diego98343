@@ -41,6 +41,28 @@ public class JobTest {
 
   }
 
+
+
+  @Test
+  public void testJobConstructorSetsAllFields(){
+    Job testingJob = new Job();
+    Job testingJob2 = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
+
+    testingJob.setEmployer(new Employer("product tester"));
+    testingJob.setLocation(new Location("Desert"));
+    testingJob.setEmployer(new Employer("ACME"));
+    testingJob.setPositionType(new PositionType("Quality Control"));
+    testingJob.setCoreCompetency(new CoreCompetency("Persistance"));
+
+
+
+
+
+
+
+
+  }
+
   @Test
     public void  testJobsForEquality(){
       Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
@@ -53,9 +75,7 @@ public class JobTest {
 
       Employer employer4= new Employer("Tesla");
 
-      employer2.setId(1);
-      employer3.setId(1);
-      employer4.setId(1);
+
 
      assertEquals(employer2,employer2);
      assertNotEquals(employer2.hashCode(),employer3);
@@ -87,24 +107,32 @@ public class JobTest {
 
 
   @Test
-  public void testToStringStartsAndEndsWithNewLine(){
-    Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
+  public void testToStringStartsAndEndsWithNewLine() {
+    Job testingJob = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistance"));
 
-    assertEquals("ID:  _______\n" +
-            "Name: _______\n" +
-            "Employer: _______\n" +
-            "Location: _______\n" +
-            "Position Type: _______\n" +
-            "Core Competency: _______",
+    assertEquals(
+            "\n" +
+                    "ID: " + testingJob.getId() + "\n" +
+                    "Name: " + testingJob.getName() + "\n" +
+                    "Employer: " + testingJob.getEmployer() + "\n" +
+                    "Location: " + testingJob.getLocation() + "\n" +
+                    "Position Type: " + testingJob.getPositionType() + "\n" +
+                    "Core Competency: " + testingJob.getCoreCompetency() +
+                    "\n",
 
 
-            testingJob.toStringFistTest());
+            testingJob.toString());
   }
+
+
+
+
 
 
   @Test
   public void testToStringContainsCorrectLabelsAndData(){
     Job testingJob = new Job("product tester",new Employer("ACME"),new Location("Desert"),new PositionType("Quality Control"), new CoreCompetency("Persistance"));
+    Job testingJob2 = new Job("",new Employer(""),new Location(""),new PositionType(""), new CoreCompetency(""));
 
     assertEquals(
             "\n"+
@@ -120,18 +148,28 @@ public class JobTest {
             testingJob.toString() );
 
      assertNotNull(testingJob);
-
-     assertNotEquals("","\n"+
-                     "ID: "+testingJob.getId()+ "\n"+
-                     "Name: "+ testingJob.getName() +"\n"+
-                     "Employer: "+ testingJob.getEmployer()+ "\n"+
-                     "Location: "+ testingJob.getLocation()+ "\n"+
-                     "Position Type: "+ testingJob.getPositionType()+ "\n"+
-                     "Core Competency: "+ testingJob.getCoreCompetency()+
-                     "\n"
-             );
-
   }
+
+  @Test
+  public void testToStringHandlesEmptyField(){
+    Job testingJob2 = new Job("",new Employer(""),new Location(""),new PositionType(""), new CoreCompetency(""));
+
+    assertEquals(
+            "\n"+
+                    "ID: "+testingJob2.getId()+ "\n"+
+                    "Name: "+"Data not available"+"\n"+
+                    "Employer: "+"Data not available"+"\n"+
+                    "Location: "+"Data not available"+ "\n"+
+                    "Position Type: "+"Data not available"+"\n"+
+                    "Core Competency: "+"Data not available"+
+                    "\n",
+
+
+            testingJob2.toString() );
+  }
+
+
+
 
   @Test
   public void  testClassExtensions(){

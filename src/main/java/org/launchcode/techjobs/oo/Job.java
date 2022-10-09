@@ -1,6 +1,8 @@
 package org.launchcode.techjobs.oo;
 
 import java.lang.instrument.ClassDefinition;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Job {
@@ -115,24 +117,7 @@ public class Job {
         return temp;
     }
 
-//    public boolean testEquals( Job object){
-//        boolean temp= false;
-//
-//        if( this.name.equals(object.getName()) &&
-//                this.employer.equals(object.getEmployer())&&
-//                this.positionType.equals(object.getPositionType())&&
-//                this.coreCompetency.equals(object.getCoreCompetency())&&
-//                this.location.equals(object.getLocation())
-//        ){
-//            temp= true;
-//
-//        } else if (this.id == object.id) {
-//
-//            temp= true;
-//        }
-//
-//        return temp;
-//    }
+
 
 
     public int testInstance(Object object1){
@@ -147,42 +132,52 @@ public class Job {
 
 
 @Override
-    public String toString(){
+    public String toString() {
 
-        String temp="";
-        String temp2="No data";
+    String temp = "";
 
+            temp += "\n" +
+                "ID: " + this.id + "\n";
 
-
-//        if(new Employer("").toString().equals()){
-//
-//            temp+= "ID: "+this.id+ "\n"+
-//                    "Name: "+ this.name +"\n"+
-//                    "Employer: "+  temp2+ "\n"+
-//                    "Location: "+ this.location+ "\n"+
-//                    "Position Type: "+ this.positionType+ "\n"+
-//                    "Core Competency: "+ this.coreCompetency;
-//
-//        } else {
-
-            temp+=          "\n"+
-                            "ID: "+this.id+ "\n"+
-                            "Name: "+ this.name +"\n"+
-                            "Employer: "+ getEmployer()+ "\n"+
-                            "Location: "+ this.location+ "\n"+
-                            "Position Type: "+ this.positionType+ "\n"+
-                            "Core Competency: "+ this.coreCompetency+
-                            "\n";
+                if(this.name.equals("")||this.name.isEmpty()){
+                    temp += "Name: Data not available"+ "\n";
+                }else {
+                    temp+= "Name: " + this.name + "\n";
+                }
 
 
 
+                if(getEmployer().getValue().equals("")|| getEmployer().getValue().isEmpty()){
+                    temp+= "Employer: Data not available" + "\n" ;
+                }else {
+                    temp+= "Employer: "+getEmployer()+ "\n";
+                }
 
 
-        return  temp;
 
+                if(getLocation().getValue().equals("")|| getLocation().getValue().isEmpty()){
+                    temp+= "Location: Data not available"+ "\n";
+                }else {
+                    temp+= "Location: "+getLocation()+ "\n";
+                }
+
+
+                if(getPositionType().getValue().equals("")|| getPositionType().getValue().isEmpty()){
+                    temp+= "Position Type: Data not available"+ "\n";
+                }else{
+                    temp+= "Position Type: "+getPositionType()+ "\n";
+                }
+
+                if(getCoreCompetency().getValue().equals("")|| getCoreCompetency().getValue().isEmpty()){
+                    temp+= "Core Competency: Data not available"+ "\n";
+                }else{
+                    temp+= "Core Competency: "+getCoreCompetency()+ "\n";
+                }
+
+
+    return temp;
 
     }
-
 
     public String toStringFistTest(){
 
@@ -198,9 +193,6 @@ public class Job {
 
         return  temp;
 
-
     }
-
-
 
 }
