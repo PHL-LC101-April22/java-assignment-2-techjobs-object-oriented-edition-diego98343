@@ -104,7 +104,8 @@ public class Job {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+
+        return Objects.hash(id, name);
     }
 
 
@@ -184,12 +185,7 @@ public class Job {
         String temp="";
 
 
-        temp+="ID:  _______\n" +
-                "Name: _______\n" +
-                "Employer: _______\n" +
-                "Location: _______\n" +
-                "Position Type: _______\n" +
-                "Core Competency: _______";
+        temp+="\n";
 
         return  temp;
 
