@@ -121,32 +121,26 @@ public class JobTest {
     Job testingJob = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistance"));
     Job testingJob2 = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistance"));
 
-
-assertEquals("\n" +
-                "ID: " + testingJob2.getId() + "\n" +
-                "Name: " + testingJob2.getName() + "\n" +
-                "Employer: " + testingJob2.getEmployer() + "\n" +
-                "Location: " + testingJob2.getLocation() + "\n" +
-                "Position Type: " + testingJob2.getPositionType() + "\n" +
-                "Core Competency: " + testingJob2.getCoreCompetency() +
-                "\n",
+   char char1='\n';
 
 
-        testingJob2.toString());
-
-    assertEquals("\n" +
-                    "ID: " + testingJob2.getId() + "\n" +
-                    "Name: " + testingJob2.getName() + "\n" +
-                    "Employer: " + testingJob2.getEmployer() + "\n" +
-                    "Location: " + testingJob2.getLocation() + "\n" +
-                    "Position Type: " + testingJob2.getPositionType() + "\n" +
-                    "Core Competency: " + testingJob2.getCoreCompetency() +
-                    "\n",
+    String string="\n" +
+            "ID: " + testingJob2.getId() + "\n" +
+            "Name: " + testingJob2.getName() + "\n" +
+            "Employer: " + testingJob2.getEmployer() + "\n" +
+            "Location: " + testingJob2.getLocation() + "\n" +
+            "Position Type: " + testingJob2.getPositionType() + "\n" +
+            "Core Competency: " + testingJob2.getCoreCompetency() +
+            "\n";
 
 
-            testingJob2.toString());
+
+assertEquals(string,testingJob2.toString());
 
 
+
+assertEquals('\n',char1);
+assertEquals('\n',char1);
 
   }
 
